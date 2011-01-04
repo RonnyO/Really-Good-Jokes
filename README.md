@@ -1,6 +1,6 @@
-This is an example mobile web app, meant to demonstrate development best practices as recommended by the W3C - [http://www.w3.org/TR/mwabp/](http://www.w3.org/TR/mwabp/)
+This is an example mobile web app, meant to demonstrate development best practices [as recommended by the W3C](http://www.w3.org/TR/mwabp/).
 
-It's also an actual web app for black humor, which is available at [http://reallygood.co.il/jokes/](http://www.w3.org/TR/mwabp/)
+It's also an actual web app for black humor, which is available at [http://reallygood.co.il/jokes/](http://reallygood.co.il/jokes/)
 
 Both jokes and documentation are in Hebrew to benefit Israeli web developers (and tact-less punks).
 
