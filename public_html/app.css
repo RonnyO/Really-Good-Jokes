@@ -1,0 +1,167 @@
+/* 
+app.css
+*/
+
+body {
+    background: #121a20 url(images/background.jpg) left top no-repeat;
+    font-family: sans-serif;
+    margin: 0; padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Scroll arrows */
+.scroll {
+    background: #000;
+    color: #FFF;
+}
+
+#right {
+    position: fixed;
+}
+
+#viewport {
+    width: 100%;
+    overflow: hidden;    
+}
+
+#jokes {
+    position: relative;
+    white-space: nowrap;
+}
+
+.joke {
+    background: #FFF;
+    color: #333333;
+    padding: 12px 18px;
+    margin: 1em 1%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    display: inline-block;
+    white-space: normal;
+    vertical-align: top;
+    border: 4px solid #9e9e9e;
+}
+
+/* Vote buttons */
+.voting {
+    position: fixed;
+    bottom: 40px;
+    width:114px;
+    height:35px;
+    width: 100%;
+}
+
+.vote {
+    width: 48%;
+    margin: 1em 1%;
+    padding: 10px 12px;
+    background: #d1d1d1;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 108px;
+    display: block;
+    float: left;
+    color: #000;
+}
+
+#like {}
+#dislike {}
+
+nav {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+}
+
+nav a {
+    float: right;
+    width: 25%;
+    height:49px;
+        line-height: 49px;
+    background: #000;
+    color: #FFF;
+    font-size: 80%;
+    white-space: normal;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Sprites */
+
+#about.selected {
+background-repeat:no-repeat;
+background-position: 0px 0px;
+}
+
+#send.selected {
+background-repeat:no-repeat;
+background-position: 80px 0px;
+}
+
+#best.selected {
+background-repeat:no-repeat;
+background-position: 160px 0px;
+}
+
+#new.selected {
+background-repeat:no-repeat;
+background-position: 240px 0px;
+}
+
+#about.selected {
+background-repeat:no-repeat;
+background-position: 0px 49px;
+}
+
+#send.selected {
+background-repeat:no-repeat;
+background-position: 80px 49px;
+}
+
+#best.selected {
+background-repeat:no-repeat;
+background-position: 160px 49px;
+}
+
+#new.selected {
+background-repeat:no-repeat;
+background-position: 240px 49px;
+}
+
+#about {
+background-repeat:no-repeat;
+background-position: 0px 98px;
+}
+
+#send {
+background-repeat:no-repeat;
+background-position: 80px 98px;
+}
+
+#best {
+background-repeat:no-repeat;
+background-position: 160px 98px;
+}
+
+#new {
+background-repeat:no-repeat;
+background-position: 240px 98px;
+}
+
+.like {
+background-repeat:no-repeat;
+background-position: 0px 147px;
+}
+
+.dislike {
+background-repeat:no-repeat;
+background-position: 114px 147px;
+}

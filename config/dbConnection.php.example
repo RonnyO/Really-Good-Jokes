@@ -1,0 +1,14 @@
+<?
+
+$host = "localhost"; //database location
+$user = "pixelshe_reallyg"; //database username
+$pass = "reallyg"; //database password
+$db_name = "pixelshe_reallyg"; //database name
+
+//database connection
+$conn = mysql_connect($host, $user, $pass);
+mysql_select_db($db_name);
+
+mysql_query("SET NAMES utf8");
+
+?>
