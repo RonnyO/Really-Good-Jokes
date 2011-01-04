@@ -80,8 +80,7 @@ function go_right(){
 
 /* reports */
 (function(){
-        // our tracking code, before we go live, is UA-20534477-1
-        var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+        var _gaq = [['_setAccount', 'UA-20534477-1'], ['_trackPageview']];
         (function(d, t) {
                 var g = d.createElement(t),
                 s = d.getElementsByTagName(t)[0];
