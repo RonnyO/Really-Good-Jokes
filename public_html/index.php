@@ -51,7 +51,6 @@ else $query=" ORDER BY RAND(".ip2long($_SERVER["REMOTE_ADDR"]).")  LIMIT $start,
 $jokes=jokes();
 
 mysql_close($conn);
-
 ?>
 <!doctype html>
 <html dir="rtl">
@@ -60,23 +59,21 @@ mysql_close($conn);
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <link rel="stylesheet" type="text/css" href="app.css?v=<?= V ?>">
+      <link rel="stylesheet" type="text/css" href="app.css?v=1">
 </head>
 <body>
 
 <div class="cont">
-	<div id="bottomBar">
-		<div class="voting">
-			<a id="dislike" href=#" class="vote">לא מצחיק</a>
-			<a id="like" href="#" class="vote">מצחיק</a>
-		</div>
-		<nav>
-			<a id="new" href="#main">בדיחות חדשות</a>
-			<a id="best" href="#top">הכי טובות</a>
-			<a id="send" href="#send">שלח בדיחה</a>
-			<a id="about" href="#about">עלינו</a>
-		</nav>
-	</div>
+    <div class="voting">
+        <a id="dislike" href=#" class="vote">לא מצחיק</a>
+        <a id="like" href="#" class="vote">מצחיק</a>
+    </div>
+    <nav>
+        <a id="new" href="#main">בדיחות חדשות</a>
+        <a id="best" href="#top">הכי טובות</a>
+        <a id="send" href="#send">שלח בדיחה</a>
+        <a id="about" href="#about">עלינו</a>
+    </nav>
     <div id="viewport">
     <div id="jokes">
     <?foreach($jokes['jokes'] as $joke){?>
@@ -91,19 +88,7 @@ mysql_close($conn);
     </div>
 </div>
 
-<script>
-/* GA async reports. Use your own tracking code if you fork this */
-(function(){
-        var _gaq = [['_setAccount', 'UA-20534477-1'], ['_trackPageview']];
-        (function(d, t) {
-                var g = d.createElement(t),
-                s = d.getElementsByTagName(t)[0];
-                g.async = true;
-                g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                s.parentNode.insertBefore(g, s);
-        })(document, 'script');
-})();
-</script>
-<script src="app.js?v=<?= V ?>"></script>
+<!-- jQtouch should go here -->
+<script src="app.js"></script>
 </body>
 </html>
