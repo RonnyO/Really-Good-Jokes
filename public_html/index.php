@@ -89,7 +89,19 @@ mysql_close($conn);
     </div>
 </div>
 
-<!-- jQtouch should go here -->
+<script>
+/* GA async reports. Use your own tracking code if you fork this */
+(function(){
+        var _gaq = [['_setAccount', 'UA-20534477-1'], ['_trackPageview']];
+        (function(d, t) {
+                var g = d.createElement(t),
+                s = d.getElementsByTagName(t)[0];
+                g.async = true;
+                g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                s.parentNode.insertBefore(g, s);
+        })(document, 'script');
+})();
+</script>
 <script src="app.js"></script>
 </body>
 </html>
