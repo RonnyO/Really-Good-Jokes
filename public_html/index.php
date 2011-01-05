@@ -1,6 +1,7 @@
-<? // ajax.php
+<?
 define ('SECURITY_CHECK', TRUE);
 require_once ('../../config/dbConnection.php');
+require_once ('../../config/config.php');
 
 function jokes()
 {
@@ -50,6 +51,7 @@ else $query=" ORDER BY RAND(".ip2long($_SERVER["REMOTE_ADDR"]).")  LIMIT $start,
 $jokes=jokes();
 
 mysql_close($conn);
+
 ?>
 <!doctype html>
 <html dir="rtl">
@@ -58,7 +60,7 @@ mysql_close($conn);
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <link rel="stylesheet" type="text/css" href="app.css?v=1">
+      <link rel="stylesheet" type="text/css" href="app.css?v=<?= V ?>">
 </head>
 <body>
 
@@ -102,6 +104,6 @@ mysql_close($conn);
         })(document, 'script');
 })();
 </script>
-<script src="app.js"></script>
+<script src="app.js?v=<?= V ?>"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<? // ajax.php
+<?
 header('Content-type: text/javascript');
 define ('SECURITY_CHECK', TRUE);
 require_once ('../../config/dbConnection.php');
