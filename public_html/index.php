@@ -63,16 +63,18 @@ mysql_close($conn);
 <body>
 
 <div class="cont">
-    <div class="voting">
-        <a id="dislike" href=#" class="vote">לא מצחיק</a>
-        <a id="like" href="#" class="vote">מצחיק</a>
-    </div>
-    <nav>
-        <a id="new" href="#main">בדיחות חדשות</a>
-        <a id="best" href="#top">הכי טובות</a>
-        <a id="send" href="#send">שלח בדיחה</a>
-        <a id="about" href="#about">עלינו</a>
-    </nav>
+	<div id="bottomBar">
+		<div class="voting">
+			<a id="dislike" href=#" class="vote">לא מצחיק</a>
+			<a id="like" href="#" class="vote">מצחיק</a>
+		</div>
+		<nav>
+			<a id="new" href="#main">בדיחות חדשות</a>
+			<a id="best" href="#top">הכי טובות</a>
+			<a id="send" href="#send">שלח בדיחה</a>
+			<a id="about" href="#about">עלינו</a>
+		</nav>
+	</div>
     <div id="viewport">
     <div id="jokes">
     <?foreach($jokes['jokes'] as $joke){?>

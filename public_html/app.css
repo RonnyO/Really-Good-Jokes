@@ -46,13 +46,19 @@ a {
     border: 4px solid #9e9e9e;
 }
 
+.bottomBar {
+	position: fixed;
+	bottom: 0;
+}
+
 /* Vote buttons */
 .voting {
-    position: fixed;
-    bottom: 40px;
-    width:114px;
-    height:35px;
+    width: 114px;
     width: 100%;
+	z-index: 10;
+	position: absolute;
+	bottom: 50px;
+	text-align: center;
 }
 
 .vote {
@@ -64,8 +70,7 @@ a {
     -moz-border-radius: 3px;
     border-radius: 3px;
     width: 108px;
-    display: block;
-    float: left;
+    display: inline-block;
     color: #000;
 }
 
@@ -74,11 +79,10 @@ a {
 
 nav {
     display: block;
-    position: fixed;
-    z-index: 10;
-    bottom: 0;
-    height: 40px;
+    height: 50px;
     width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 
 nav a {
