@@ -106,10 +106,8 @@ a {
 	background: -moz-linear-gradient(top, #F3F3F3 0%, #DBDBDB 50%, #CACACA 51%, #DCDCDC 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F3F3F3), color-stop(50%,#DBDBDB), color-stop(51%,#CACACA), color-stop(100%,#DCDCDC));
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F3F3F3', endColorstr='#DCDCDC',GradientType=0 );
-	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding;
 	background-clip: padding-box;
 }
@@ -121,8 +119,6 @@ a {
 	top: 6px;
 	width: 19px;
 	height: 19px;
-	background-image: url(images/icons.png);
-	background-repeat: no-repeat;
 }
 
 #like .icon {
@@ -153,12 +149,34 @@ nav a {
 	float: right;
 	width: 25%;
 	height:49px;
-	line-height: 44px;
+	line-height: 8px;
 	color: #FFF;
-	font-size: 80%;
+	font-size: 70%;
+	font-weight: bold;
 	white-space: normal;
 	text-align: center;
 	vertical-align: middle;
+}
+
+nav .icon {
+	width: 29px;
+	height: 29px;
+	margin: 0 49px 5px;
+}
+
+#new .icon {background-position: -87px 0;}
+#best .icon {background-position: -56px 0;}
+#send .icon {background-position: -26px 0;}
+#about .icon {background-position: 5px 0;}
+
+#new:hover .icon {background-position: -87px -28px;}
+#best:hover .icon {background-position: -56px -28px;}
+#send:hover .icon {background-position: -26px -28px;}
+#about:hover .icon {background-position: 5px -28px;}
+
+.icon {
+	background-image: url(images/icons.png);
+	background-repeat: no-repeat;
 }
 
 /* Helpers */
