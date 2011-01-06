@@ -159,20 +159,19 @@ nav a {
 }
 
 nav .icon {
-	width: 29px;
-	height: 29px;
-	margin: 0 49px 5px;
+	height: 26px;
+	margin: 2px auto 5px;
 }
 
-#new .icon {background-position: -87px 0;}
-#best .icon {background-position: -56px 0;}
-#send .icon {background-position: -26px 0;}
-#about .icon {background-position: 5px 0;}
+#new .icon {background-position: -87px -2px; width: 27px;}
+#best .icon {background-position: -57px -2px; width: 25px;}
+#send .icon {background-position: -27px -2px; width: 25px;}
+#about .icon {background-position: 0 -2px; width: 21px;}
 
-#new:hover .icon {background-position: -87px -28px;}
-#best:hover .icon {background-position: -56px -28px;}
-#send:hover .icon {background-position: -26px -28px;}
-#about:hover .icon {background-position: 5px -28px;}
+#new:hover .icon {background-position: -87px -30px;}
+#best:hover .icon {background-position: -57px -30px;}
+#send:hover .icon {background-position: -27px -30px;}
+#about:hover .icon {background-position: 0 -30px;}
 
 .icon {
 	background-image: url(images/icons.png);
