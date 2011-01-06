@@ -82,7 +82,7 @@ a {
 /* Vote buttons */
 .voting {
 	position: absolute;
-	bottom: 48px;
+	bottom: 47px;
 	width: 100%;
 	z-index: 10;
 	border-bottom: 1px solid #000;
@@ -136,9 +136,7 @@ nav {
 	bottom: 0;
 	width: 100%;
 	height: 46px;
-	border-width: 1px 0;
-	border-style: solid;
-	border-color: #545454 #545454 #2d3033;
+	border-top: 1px solid #545454;
 	background: #000;
 	background: -moz-linear-gradient(top, #3B3B3B 0%, #1D1D1D 50%, #020202 51%, #000000 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3B3B3B), color-stop(50%,#1D1D1D), color-stop(51%,#020202), color-stop(100%,#000000));
