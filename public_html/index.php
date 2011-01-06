@@ -60,8 +60,6 @@ mysql_close($conn);
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" /> 
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <link rel="stylesheet" type="text/css" href="app.css?v=<?= V ?>">
 </head>
@@ -70,8 +68,8 @@ mysql_close($conn);
 <div class="cont">
 	<div id="bottomBar">
 		<div class="voting">
-			<a id="dislike" href=#" class="vote">לא מצחיק</a>
 			<a id="like" href="#" class="vote">מצחיק</a>
+			<a id="dislike" href="#" class="vote">לא מצחיק</a>
 		</div>
 		<nav>
 			<a id="new" href="#main">בדיחות חדשות</a>

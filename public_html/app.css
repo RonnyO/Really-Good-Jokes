@@ -91,20 +91,26 @@ a {
 }
 
 .vote {
-    width: 48%;
-    margin: 1em 1%;
-    padding: 10px 12px;
-    background: #d1d1d1;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    width: 108px;
     display: inline-block;
-    color: #000;
+	margin: 1em 3%;
+	width: 111px;
+	height: 33px;
+	background-image: url(images/sprite.png);
+	background-repeat: no-repeat;
+	line-height: 29px;
+	text-align: right;
+	text-indent: 0.55em;
+	font-weight: bold;
+	color: #111;
 }
 
-#like {}
-#dislike {}
+#like {
+	background-position: -2px -148px;
+}
+
+#dislike {
+	background-position: -115px -148px;
+}
 
 nav {
     display: block;
