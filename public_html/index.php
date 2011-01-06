@@ -57,9 +57,13 @@ mysql_close($conn);
 <head>
       <title>שחור משחור</title>
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" /> 
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <link rel="stylesheet" type="text/css" href="app.css?v=1">
+      <link rel="stylesheet" type="text/css" href="app.css?v=<?= V ?>">
 </head>
 <body>
 
@@ -94,7 +98,7 @@ mysql_close($conn);
     </div>
 </div>
 
-<script src="js/iscroll.js"></script>
-<script src="js/app.js"></script>
+<script src="js/iscroll.js?v=<?= V ?>"></script>
+<script src="js/app.js?v=<?= V ?>"></script>
 </body>
 </html>
