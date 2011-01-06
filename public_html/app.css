@@ -81,11 +81,11 @@ a {
 
 /* Vote buttons */
 .voting {
-	width: 114px;
+	position: absolute;
+	bottom: 48px;
 	width: 100%;
 	z-index: 10;
-	position: absolute;
-	bottom: 50px;
+	border-bottom: 1px solid #000;
 	text-align: center;
 }
 
@@ -111,20 +111,27 @@ a {
 	background-position: -115px -148px;
 }
 
+/* Bottom Bar */
 nav {
 	display: block;
-	height: 50px;
-	width: 100%;
 	position: absolute;
 	bottom: 0;
+	width: 100%;
+	height: 46px;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: #545454 #545454 #2d3033;
+	background: #000;
+	background: -moz-linear-gradient(top, #3B3B3B 0%, #1D1D1D 50%, #020202 51%, #000000 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3B3B3B), color-stop(50%,#1D1D1D), color-stop(51%,#020202), color-stop(100%,#000000));
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3B3B3B', endColorstr='#000000',GradientType=0 );
 }
 
 nav a {
 	float: right;
 	width: 25%;
 	height:49px;
-	line-height: 49px;
-	background: #000;
+	line-height: 44px;
 	color: #FFF;
 	font-size: 80%;
 	white-space: normal;
