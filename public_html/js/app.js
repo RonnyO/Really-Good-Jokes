@@ -52,72 +52,14 @@ $(document).ready(function(){
     myScroll.scrollToPage($('#jokes li').dom.length, 0,'0ms');
 });
 
-
-//var myScroll;
-//document.addEventListener('touchstart', function(e){ e.preventDefault(); }, false);
-////window.addEventListener('resize', function(e){ console.log($('#viewport').width()) }, false);
-//
-//
-//
-//var obj = $('#jokes');
-//var curJoke = 0;
-//var _right = 0;
-//var gen_width = $('#viewport').width() * 0.8;
-//var start_width = $('#viewport').width() * 0.05;
-//obj.css({'right':0,'width':($('#jokes .joke').dom.length * gen_width)+'px'});
-//$('#jokes .joke').css('width',gen_width+'px');
-//var curX = -start_width;
-////obj.anim({translate3d: curX+'px, 0px, 0px'},0);
-//
-//$(document).ready(function(){
-//    myScroll = new iScroll('jokes',{bounceLock:true});
-//})
-//
-//var app = {
-//
-//};
-//
-////$('#viewport').swipeLeft(function(){
-////        go_left();
-////  })
-////  .swipeRight(function(){
-////        go_right();
-////  }).bind('click',function(){
-////    go_right();
-////  });
-//
-//
-//
-//function go_left(){
-//    if(curJoke == 0) return;
-//    _right = curX - (gen_width + (gen_width *0.05));
-//    obj.anim({
-//          translate3d: _right+'px, 0px, 0px'
-//        });
-//    curX = _right;
-//    curJoke--;
-//
-//}
-//
-//function go_right(){
-//    if(curJoke == ($('#jokes .joke').dom.length - 1)) return;
-//    _right += (gen_width + start_width);
-//    obj.anim({
-//          translate3d: _right+'px, 0px, 0px'
-//        });
-//    curX = _right;
-//    console.log(curX);
-//    curJoke++;
-//}
-
 /* reports */
 (function(){
 	var _gaq = [['_setAccount', 'UA-20534477-1'], ['_trackPageview']];
 	(function(d, t) {
-			var g = d.createElement(t),
-			s = d.getElementsByTagName(t)[0];
-			g.async = true;
-			g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			s.parentNode.insertBefore(g, s);
+		var g = d.createElement(t),
+		s = d.getElementsByTagName(t)[0];
+		g.async = true;
+		g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g, s);
 	})(document, 'script');
 })();
