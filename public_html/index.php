@@ -72,10 +72,14 @@ mysql_close($conn);
 			<a id="dislike" href="#" class="vote">לא מצחיק</a>
 		</div>
 		<nav>
-			<a id="new" href="#main"><span class="icon"> </span>בדיחות חדשות</a>
-			<a id="best" href="#top"><span class="icon"> </span>הכי טובות</a>
-			<a id="send" href="#send"><span class="icon"> </span>שלח בדיחה</a>
-			<a id="about" href="#about"><span class="icon"> </span>עלינו</a>
+			<a id="new" href="#main" class="active">
+				<div class="inner"><span class="icon"></span>בדיחות חדשות</div></a>
+			<a id="best" href="#top">
+				<div class="inner"><span class="icon"></span>הכי טובות</div></a>
+			<a id="send" href="#send">
+				<div class="inner"><span class="icon"></span>שלח בדיחה</div></a>
+			<a id="about" href="#about">
+				<div class="inner"><span class="icon"></span>עלינו</div></a>
 		</nav>
 	</div>
     <div id="viewport">
