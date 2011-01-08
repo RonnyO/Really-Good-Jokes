@@ -61,6 +61,17 @@ function iScroll (el, options) {
 
 	window.addEventListener('onorientationchange' in window ? 'orientationchange' : 'resize', that, false);
 
+	that.wheel2=function(e){that.wheel(e)}; //anonymous functions duplicated on events (spend memory) so here is a named one
+	if(that.element.addEventListener)
+  {
+   that.element.addEventListener('DOMMouseScroll', that.wheel2, false); //adding the event listerner for Mozilla
+   that.element.addEventListener('mousewheel', that.wheel2, false); //adding the event listerner for Chrome
+  }
+	else if(document.attachEvent)
+   that.element.attachEvent("onmousewheel",that.wheel2);
+  else
+   that.element.onmousewheel = that.wheel2; 	//for IE/OPERA etc
+  
 	if (isTouch || that.options.desktopCompatibility) {
 		that.element.addEventListener(START_EVENT, that, false);
 		that.element.addEventListener(MOVE_EVENT, that, false);
@@ -99,6 +110,9 @@ iScroll.prototype = {
 				break;
 			case 'DOMSubtreeModified':
 				that.onDOMModified(e);
+				break;
+			case 'wheel':
+			  that.wheel(e);
 				break;
 		}
 	},
@@ -592,7 +606,37 @@ iScroll.prototype = {
 		}
 		
 		return null;
-	}
+	},
+	
+  wheel:function(event)
+  {
+   var that=this;
+   if (!that.enabled) {
+		return;
+	 }
+   if(that.wheeld) {
+    return;
+   }
+   that.wheeld=true;
+   setTimeout(function(){that.wheeld=false;},200); //block the wheel for a little
+   var delta = 0; 
+	 if (!event) event = window.event;  
+	 // normalize the delta:
+   if (event.wheelDelta) {
+		delta = event.wheelDelta / 120;// IE & Opera
+	 }
+	 else if (event.detail) {
+		delta = -event.detail / 3; // W3C
+	 }
+	 /*
+	 if(this.options.vScrollbar)
+    this.scrollToPage(Math.min(this.maxPageX,Math.max(0,this.pageX+delta)),this.pageY);
+    */
+   if(that.options.vScrollbar) {
+    if(delta>0){ that.scrollToPage('next',that.pageY);}
+    if(delta<0){ that.scrollToPage('prev',that.pageY);}
+   }
+  }
 };
 
 function scrollbar (dir, wrapper, fade, shrink, color) {
