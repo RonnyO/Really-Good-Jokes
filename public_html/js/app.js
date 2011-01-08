@@ -42,7 +42,7 @@ $(document).ready(function(){
 		onScrollEnd: function (e) {
             cur_li = $('#jokes li').dom[this.pageX];
             if(1){ //check if content exeeds the parent
-                overfloated_obj = document.querySelector('#jokes li:nth-child(' + (this.pageX + 1) + ') p');
+                overfloated_obj = document.querySelector('#jokes li:nth-child(' + (this.pageX + 1) + ') div');
                 single_scroll = new iScroll(overfloated_obj,{desktopCompatibility:true,ischildiscroll:true,vScrollbar:true,momentum:true});
             }else{
                 single_scroll.destroy();
