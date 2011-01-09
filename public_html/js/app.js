@@ -22,7 +22,25 @@ f(i.target).trigger("swipe"+(i.x1-i.x2>0?"Left":"Right"));i.x1=i.x2=i.last=0}els
 o);if(h instanceof Object){h=JSON.stringify(h);p=p||"application/json"}p&&n.setRequestHeader("Content-Type",p);n.setRequestHeader("X-Requested-With","XMLHttpRequest");n.send(h)};var m=f.ajax.mimeTypes={json:"application/json",xml:"application/xml",html:"text/html",text:"text/plain"};f.get=function(b,h){f.ajax({url:b,success:h})};f.post=function(b,h,j,l){if(h instanceof Function){l=l||j;j=h;h=null}f.ajax({type:"POST",url:b,data:h,success:j,dataType:l})};f.getJSON=function(b,h){f.ajax({url:b,success:h,
 dataType:"json"})};f.fn.load=function(b,h){if(!this.dom.length)return this;var j=this,l=b.split(/\s/),o;if(l.length>1){b=l[0];o=l[1]}f.get(b,function(p){j.html(o?f(document.createElement("div")).html(p).find(o).html():p);h&&h()});return this}})(Zepto);(function(f){var i=[],m;f.fn.remove=function(){return this.each(function(b){if(b.tagName=="IMG"){i.push(b);b.src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";m&&clearTimeout(m);m=setTimeout(function(){i=[]},6E4)}b.parentNode.removeChild(b)})}})(Zepto);
 
+var jokes = {};
 
+jokes.p = {
+   obj : ''
+   ,gen_width : ''
+   ,gen_height : ''
+};
+jokes.reassign = function(){
+   jokes.p.obj = $('#jokes');
+   jokes.p.gen_width = $('#viewport').width();
+   jokes.p.gen_height = (window.innerHeight - $('.voting').height() - $('nav').height() - 15);
+};
+jokes.calculate =  function(){
+    jokes.reassign();
+    jokes.p.obj.css({'width':($('.joke').dom.length * jokes.p.gen_width)+'px','height':jokes.p.gen_height+'px'});
+    $('.joke').css({'width':(jokes.p.gen_width*0.8)+'px','margin':'0 '+(jokes.p.gen_width*0.1)+'px','height':jokes.p.gen_height+'px'});
+};
+
+window.addEventListener('resize',jokes.calculate);
 var myScroll;
 var single_scroll;
 
@@ -51,15 +69,3 @@ $(document).ready(function(){
 	 });
     myScroll.scrollToPage($('#jokes li').dom.length, 0,'0ms');
 });
-
-/* reports */
-(function(){
-	var _gaq = [['_setAccount', 'UA-20534477-1'], ['_trackPageview']];
-	(function(d, t) {
-		var g = d.createElement(t),
-		s = d.getElementsByTagName(t)[0];
-		g.async = true;
-		g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g, s);
-	})(document, 'script');
-})();
