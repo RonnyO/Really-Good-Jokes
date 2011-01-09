@@ -3,11 +3,13 @@ app.css
 */
 
 body {
-	background: #121a20 url(images/background.jpg) left top no-repeat;
+
+	background: #121a20 url(images/bg.jpg) left top repeat;
 	font-family: sans-serif;
 	margin: 0; padding: 0;
 	overflow:hidden;
 }
+
 
 a {
 	text-decoration: none;
@@ -71,7 +73,7 @@ a {
 	background: #FFF;
 	-webkit-box-sizing:border-box;
 	display:block;
-	padding: 0 18px 30px;
+	padding: 10px 18px 30px;
 	min-height:100%;
 }
 .bottomBar {
