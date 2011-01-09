@@ -40,7 +40,7 @@ jokes.calculate =  function(){
     $('.joke').css({'width':(jokes.p.gen_width*0.8)+'px','margin':'0 '+(jokes.p.gen_width*0.1)+'px','height':jokes.p.gen_height+'px'});
 };
 
-window.addEventListener('resize',jokes.calculate);
+window.addEventListener('resize',jokes.calculate,true);
 var myScroll;
 var single_scroll;
 
