@@ -51,6 +51,19 @@ else $query=" ORDER BY RAND(".ip2long($_SERVER["REMOTE_ADDR"]).")  LIMIT $start,
 
 if(isset($_REQUEST['get'])) 
  echo json_encode(jokes());
+if(isset($_REQUEST['submit'])) 
+{
+ $result=mysql_query("insert into jokes('joke') values('".mysql_real_escape_string($_REQUEST['joke'])."');");
+ if (!$result) {
+    $message  = 'Invalid query: ' . mysql_error() . "\n";
+    $message .= 'Whole query: ' . $query;
+    die($message);
+ }
+ else
+ {
+  echo mysql_insert_id();
+ }
+}
 else if(isset($_REQUEST['vote']) && isset($_REQUEST['id']))
 {
  $id=intval($_REQUEST['id']);
