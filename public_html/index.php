@@ -90,13 +90,11 @@ mysql_close($conn);
 		<div class="inner">
 			<?=htmlspecialchars($joke['joke'])?>
 		</div>
-     </div>
+	</li>
     <?
      }
     ?>
-        </p>
-    </li>
-
+	<li> שלח בדיחה</li>
     </ul>
     </div>
 </div>
