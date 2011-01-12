@@ -22,7 +22,20 @@ f(i.target).trigger("swipe"+(i.x1-i.x2>0?"Left":"Right"));i.x1=i.x2=i.last=0}els
 o);if(h instanceof Object){h=JSON.stringify(h);p=p||"application/json"}p&&n.setRequestHeader("Content-Type",p);n.setRequestHeader("X-Requested-With","XMLHttpRequest");n.send(h)};var m=f.ajax.mimeTypes={json:"application/json",xml:"application/xml",html:"text/html",text:"text/plain"};f.get=function(b,h){f.ajax({url:b,success:h})};f.post=function(b,h,j,l){if(h instanceof Function){l=l||j;j=h;h=null}f.ajax({type:"POST",url:b,data:h,success:j,dataType:l})};f.getJSON=function(b,h){f.ajax({url:b,success:h,
 dataType:"json"})};f.fn.load=function(b,h){if(!this.dom.length)return this;var j=this,l=b.split(/\s/),o;if(l.length>1){b=l[0];o=l[1]}f.get(b,function(p){j.html(o?f(document.createElement("div")).html(p).find(o).html():p);h&&h()});return this}})(Zepto);(function(f){var i=[],m;f.fn.remove=function(){return this.each(function(b){if(b.tagName=="IMG"){i.push(b);b.src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";m&&clearTimeout(m);m=setTimeout(function(){i=[]},6E4)}b.parentNode.removeChild(b)})}})(Zepto);
 
-var jokes = {},
+var jokes = {
+	refreshVotingButtons: function(){
+		var storedVote = localStorage.getItem(currentJokeId);
+		if(storedVote == 'like') {
+			$('#like').addClass('active');
+			$('#dislike').removeClass('active');
+		} else if (storedVote == 'dislike') {
+			$('#dislike').addClass('active');
+			$('#like').removeClass('active');
+		} else {
+			$('#dislike').removeClass('active');
+		}
+	}
+},
 	currentJoke;
 
 jokes.p = {
@@ -49,6 +62,7 @@ jokes.bindButtons = function(){
 			url: 'ajax.php?vote='+ vote +'&id=' + currentJokeId,
 			success: function(){
 				localStorage.setItem(currentJokeId, vote);
+				jokes.refreshVotingButtons();
 			}
 		});
 	});
@@ -89,16 +103,8 @@ $(document).ready(function(){
 				$('.voting').removeClass('submitActive');
 			}
 			
-			var storedVote = localStorage.getItem(currentJokeId);
-			if(storedVote == 'like') {
-				$('#like').addClass('active');
-				$('#dislike').removeClass('active');
-			} else if (storedVote == 'dislike') {
-				$('#dislike').addClass('active');
-				$('#like').removeClass('active');
-			} else {
-				$('#dislike').removeClass('active');
-			}
+			jokes.refreshVotingButtons();
+			
             if(1){ //check if content exeeds the parent
                 overfloated_obj = document.querySelector('#jokes li:nth-child(' + (this.pageX + 1) + ') div');
                 single_scroll = new iScroll(overfloated_obj,{desktopCompatibility:true,ischildiscroll:true,vScrollbar:true,momentum:true});
