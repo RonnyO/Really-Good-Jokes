@@ -23,6 +23,7 @@ o);if(h instanceof Object){h=JSON.stringify(h);p=p||"application/json"}p&&n.setR
 dataType:"json"})};f.fn.load=function(b,h){if(!this.dom.length)return this;var j=this,l=b.split(/\s/),o;if(l.length>1){b=l[0];o=l[1]}f.get(b,function(p){j.html(o?f(document.createElement("div")).html(p).find(o).html():p);h&&h()});return this}})(Zepto);(function(f){var i=[],m;f.fn.remove=function(){return this.each(function(b){if(b.tagName=="IMG"){i.push(b);b.src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";m&&clearTimeout(m);m=setTimeout(function(){i=[]},6E4)}b.parentNode.removeChild(b)})}})(Zepto);
 
 var jokes = {
+	currentPage: "top",
 	refreshVotingButtons: function(){
 		var storedVote = localStorage.getItem(currentJokeId);
 		if(storedVote == 'like') {
@@ -90,6 +91,7 @@ obj.css({'width':($('.joke').dom.length * gen_width)+'px','height':gen_height+'p
 $('.joke').css({'width':(gen_width*0.8)+'px','margin':'0 '+(gen_width*0.1)+'px','height':gen_height+'px'});
 
 $(document).ready(function(){
+	jokes.currentPage = $(document.body).attr('class');
 	myScroll = new iScroll('jokes', {
 		snap:true,
 		momentum:false,
@@ -101,10 +103,10 @@ $(document).ready(function(){
 			currentJokeId = currentJoke.attr('id');
 			if(currentJokeId == 'submitForm') {
 				$('.voting').addClass('submitActive');
-				$('nav #send').addClass('active');
+				$(document.body).attr('class', 'send');
 			} else {
 				$('.voting').removeClass('submitActive');
-				$('nav #send').removeClass('active');
+				$(document.body).attr('class', jokes.currentPage);
 			}
 			
 			jokes.refreshVotingButtons();

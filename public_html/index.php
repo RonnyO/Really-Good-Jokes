@@ -1,4 +1,4 @@
-﻿<?
+<?
 define ('SECURITY_CHECK', TRUE);
 require_once ('../../config/dbConnection.php');
 require_once ('../../config/config.php');
@@ -56,8 +56,8 @@ mysql_close($conn);
 <!doctype html>
 <html dir="rtl">
 <head>
-      <title>שחור משחור</title>
       <meta charset="utf-8">
+	  <title>שחור משחור</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" /> 
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -87,14 +87,16 @@ mysql_close($conn);
     <div id="viewport">
     <div id="jokes">
         <ul>
-			<li class="joke" id="submitForm"><div class="inner">
+			<li class="joke" id="submitForm">
+				<div class="inner">
 				<h2>שלח בדיחה</h2>
 				<form>
 					<div class="controls">
 						<textarea placeholder="משהו מצחיק... " title="שלח בדיחה"></textarea>
-						<input type="submit" id="submit" name="submit" value="שלח">
+						<input type="submit" name="submit" value="שלח">
 					</div>
 				</form>
+				</div>
 			 </li>
 			<?foreach($jokes['jokes'] as $joke){?>
 			 <li class="joke" id="joke-<?=$joke['id']?>">
@@ -105,6 +107,7 @@ mysql_close($conn);
 			<? } ?>
     </ul>
     </div>
+</div>
 </div>
 
  <script>
