@@ -63,11 +63,12 @@ jokes.bindButtons = function(){
 		ev.preventDefault();
 		var votedElement = $(this);
 		currentJokeId = currentJoke.attr('id');
+		var plainId = currentJokeId.split('-')[1];
 		var vote = $(this).attr('id');
 		$('.vote').removeClass('spin');
 		votedElement.addClass('spin');
 		$.ajax({
-			url: 'ajax.php?vote='+ vote +'&id=' + currentJokeId,
+			url: 'ajax.php?vote='+ vote +'&id=' + plainId,
 			success: function(){
 			    try{
 					localStorage.setItem(currentJokeId, vote);
