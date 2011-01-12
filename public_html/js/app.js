@@ -48,7 +48,7 @@ var obj = $('#jokes');
 var gen_width = $('#viewport').width();
 var gen_height = (window.innerHeight - $('.voting').height() - $('nav').height() - 15);
 
-obj.css({'width':($('.joke').dom.length * gen_width)+'px','height':gen_height+'px'});
+obj.css({'width':(($('.joke').dom.length+1) * gen_width)+'px','height':gen_height+'px'});
 $('.joke').css({'width':(gen_width*0.8)+'px','margin':'0 '+(gen_width*0.1)+'px','height':gen_height+'px'});
 
 $(document).ready(function(){
