@@ -92,8 +92,7 @@ mysql_close($conn);
 				<h2>שלח בדיחה</h2>
 				<form>
 					<div class="controls">
-						<textarea placeholder="משהו מצחיק... " title="שלח בדיחה"></textarea>
-						<input type="submit" name="submit" value="שלח">
+						<textarea placeholder="שתהיה מצחיקה, שחורה ושלך." title="שלח בדיחה"></textarea>
 					</div>
 				</form>
 				</div>
