@@ -131,6 +131,10 @@ a {
 	background-position: -25px -61px;
 }
 
+.vote.active {
+	-webkit-box-shadow: 1px 1px 5px red;
+}
+
 /* Bottom Bar */
 nav {
 	display: block;

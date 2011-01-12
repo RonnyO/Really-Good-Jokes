@@ -41,15 +41,13 @@ jokes.calculate =  function(){
     $('.joke').css({'width':(jokes.p.gen_width*0.8)+'px','margin':'0 '+(jokes.p.gen_width*0.1)+'px','height':jokes.p.gen_height+'px'});
 };
 jokes.initVoteButtons = function(){
-	$('#like').bind('click', function(){
-	currentJokeId = $(currentJoke).attr('id');
+	$('.vote').bind('click', function(){
+	currentJokeId = currentJoke.attr('id');
+	var vote = $(this).attr('id');
 		$.ajax({
-			url: 'ajax.php?vote=1&id=' + currentJokeId,
+			url: 'ajax.php?vote='+ vote +'&id=' + currentJokeId,
 			success: function(){
-				console && console.log('success');
-			},
-			error: function(){
-				console && console.warn('voting error');
+				localStorage.setItem(currentJokeId, vote);
 			}
 		});
 	});
@@ -73,7 +71,18 @@ $(document).ready(function(){
         desktopCompatibility:true,
 		hScrollbar:false,
 		onScrollEnd: function (e) {
-            currentJoke = $('#jokes li').dom[this.pageX];
+            currentJoke = $($('#jokes li').dom[this.pageX]);
+			currentJokeId = currentJoke.attr('id');
+			var storedVote = localStorage.getItem(currentJokeId);
+			if(storedVote == 'like') {
+				$('#like').addClass('active');
+				$('#dislike').removeClass('active');
+			} else if (storedVote == 'dislike') {
+				$('#dislike').addClass('active');
+				$('#like').removeClass('active');
+			} else {
+				$('#dislike').removeClass('active');
+			}
             if(1){ //check if content exeeds the parent
                 overfloated_obj = document.querySelector('#jokes li:nth-child(' + (this.pageX + 1) + ') div');
                 single_scroll = new iScroll(overfloated_obj,{desktopCompatibility:true,ischildiscroll:true,vScrollbar:true,momentum:true});

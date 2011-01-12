@@ -86,7 +86,7 @@ mysql_close($conn);
     <div id="jokes">
         <ul>
     <?foreach($jokes['jokes'] as $joke){?>
-     <li class="joke" id="joke-<?=$joke['id']?>">
+	 <li class="joke" id="joke-<?=$joke['id']?>">
 		<div class="inner">
 			<?=htmlspecialchars($joke['joke'])?>
 		</div>
