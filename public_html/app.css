@@ -190,15 +190,17 @@ nav .icon {
 	top: 1px;
 }
 
+/* tab icons */
 #new .icon {background-position: -87px -2px; width: 27px;}
-#best .icon {background-position: -57px -2px; width: 25px;}
+#top .icon {background-position: -57px -2px; width: 25px;}
 #send .icon {background-position: -27px -2px; width: 25px;}
 #about .icon {background-position: 0 -2px; width: 21px;}
 
-#new:hover .icon, #new.active .icon {background-position: -87px -30px;}
-#best:hover .icon, #best.active .icon {background-position: -57px -30px;}
-#send:hover .icon, #send.active .icon {background-position: -27px -30px;}
-#about:hover .icon, #about.active .icon {background-position: 0 -30px;}
+/* active tab icons */
+#new:hover .icon, body.new #new .icon {background-position: -87px -30px;}
+#top:hover .icon, body.top #top .icon{background-position: -57px -30px;}
+#send:hover .icon, body.send #send .icon {background-position: -27px -30px;}
+#about:hover .icon, body.about #about .icon {background-position: 0 -30px;}
 
 .icon {
 	background-image: url(images/icons.png?v=2);
@@ -213,7 +215,11 @@ nav .inner {
 	border-radius: 3px;
 }
 
-nav a.active .inner {
+/* tab highlights */
+body.new #new .inner,
+body.top #top .inner, 
+body.send #send .inner,
+body.about #about .inner {
 	background: rgba(255, 255, 255, 0.14);
 }
 

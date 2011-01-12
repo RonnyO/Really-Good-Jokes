@@ -74,9 +74,9 @@ mysql_close($conn);
 			<a id="submit" href="#" rel="nofollow">שלח בדיחה <span class="icon">&lt;[ ]</span></a>
 		</div>
 		<nav>
-			<a id="new" href="?get=new" class="active">
+			<a id="new" href="?get=new">
 				<div class="inner"><span class="icon"></span>בדיחות חדשות</div></a>
-			<a id="best" href="?get=top">
+			<a id="top" href="?get=top">
 				<div class="inner"><span class="icon"></span>הכי טובות</div></a>
 			<a id="send" href="#send">
 				<div class="inner"><span class="icon"></span>שלח בדיחה</div></a>

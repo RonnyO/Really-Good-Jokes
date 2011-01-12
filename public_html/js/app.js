@@ -56,16 +56,17 @@ jokes.calculate =  function(){
 jokes.bindButtons = function(){
 	// votes
 	$('.vote').bind('click', function(ev){
-	ev.preventDefault();
-	currentJokeId = currentJoke.attr('id');
-	var vote = $(this).attr('id');
+		var votedElement = this;
+		ev.preventDefault();
+		currentJokeId = currentJoke.attr('id');
+		var vote = $(this).attr('id');
 		$.ajax({
 			url: 'ajax.php?vote='+ vote +'&id=' + currentJokeId,
 			success: function(){
 				localStorage.setItem(currentJokeId, vote);
-				$('#like').removeClass('active');
-				$(this).addClass('active');
-			}.bind(this)
+				$('.vote').removeClass('active');
+				$('#' + vote).addClass('active');
+			}
 		});
 	});
 	
@@ -73,8 +74,7 @@ jokes.bindButtons = function(){
 	$('#send').bind('click', function(ev){
 		ev.preventDefault();
 		myScroll.scrollToPage(0, 0, "500ms");
-		$('nav a').removeClass('active');
-		$(this).addClass('active');
+		$(document.body).attr('class', 'send');
 	});
 };
 
