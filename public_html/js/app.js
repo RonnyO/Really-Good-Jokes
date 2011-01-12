@@ -23,17 +23,20 @@ o);if(h instanceof Object){h=JSON.stringify(h);p=p||"application/json"}p&&n.setR
 dataType:"json"})};f.fn.load=function(b,h){if(!this.dom.length)return this;var j=this,l=b.split(/\s/),o;if(l.length>1){b=l[0];o=l[1]}f.get(b,function(p){j.html(o?f(document.createElement("div")).html(p).find(o).html():p);h&&h()});return this}})(Zepto);(function(f){var i=[],m;f.fn.remove=function(){return this.each(function(b){if(b.tagName=="IMG"){i.push(b);b.src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";m&&clearTimeout(m);m=setTimeout(function(){i=[]},6E4)}b.parentNode.removeChild(b)})}})(Zepto);
 
 var jokes = {
+	currentPage: "top",
 	refreshVotingButtons: function(){
-		var storedVote = localStorage.getItem(currentJokeId);
-		if(storedVote == 'like') {
-			$('#like').addClass('active');
-			$('#dislike').removeClass('active');
-		} else if (storedVote == 'dislike') {
-			$('#dislike').addClass('active');
-			$('#like').removeClass('active');
-		} else {
-			$('.vote').removeClass('active');
-		}
+		try {
+			var storedVote = localStorage.getItem(currentJokeId);
+			if(storedVote == 'like') {
+				$('#like').addClass('active');
+				$('#dislike').removeClass('active');
+			} else if (storedVote == 'dislike') {
+				$('#dislike').addClass('active');
+				$('#like').removeClass('active');
+			} else {
+				$('.vote').removeClass('active');
+			}
+		}catch(e){}
 	}
 };
 var currentJoke;
@@ -48,23 +51,27 @@ jokes.reassign = function(){
    jokes.p.gen_width = $('#viewport').width();
    jokes.p.gen_height = (window.innerHeight - $('.voting').height() - $('nav').height() - 15);
 };
-jokes.calculate =  function(){
+jokes.calculate = function(){
     jokes.reassign();
     jokes.p.obj.css({'width':($('.joke').dom.length * jokes.p.gen_width)+'px','height':jokes.p.gen_height+'px'});
     $('.joke').css({'width':(jokes.p.gen_width*0.8)+'px','margin':'0 '+(jokes.p.gen_width*0.1)+'px','height':jokes.p.gen_height+'px'});
 };
 jokes.bindButtons = function(){
 	// votes
-	$('.vote').bind('click', function(){
-	currentJokeId = currentJoke.attr('id');
-	var vote = $(this).attr('id');
+	$('.vote').bind('click', function(ev){
+		var votedElement = this;
+		ev.preventDefault();
+		currentJokeId = currentJoke.attr('id');
+		var vote = $(this).attr('id');
 		$.ajax({
 			url: 'ajax.php?vote='+ vote +'&id=' + currentJokeId,
 			success: function(){
-				localStorage.setItem(currentJokeId, vote);
-				$('#like').removeClass('active');
-				$(this).addClass('active');
-			}.bind(this)
+			    try{
+					localStorage.setItem(currentJokeId, vote);
+					$('.vote').removeClass('active');
+					$('#' + vote).addClass('active');
+				} catch(e) {}
+			}
 		});
 	});
 	
@@ -72,38 +79,32 @@ jokes.bindButtons = function(){
 	$('#send').bind('click', function(ev){
 		ev.preventDefault();
 		myScroll.scrollToPage(0, 0, "500ms");
-		$('nav a').removeClass('active');
-		$(this).addClass('active');
+		$(document.body).attr('class', 'send');
 	});
 };
 
-window.addEventListener('resize',jokes.calculate,true);
-var myScroll;
-var single_scroll;
+window.addEventListener('resize', jokes.calculate, true);
+var myScroll,
+	single_scroll;
 
-var obj = $('#jokes');
-var gen_width = $('#viewport').width();
-var gen_height = (window.innerHeight - $('.voting').height() - $('nav').height() - 15);
-
-obj.css({'width':($('.joke').dom.length * gen_width)+'px','height':gen_height+'px'});
-$('.joke').css({'width':(gen_width*0.8)+'px','margin':'0 '+(gen_width*0.1)+'px','height':gen_height+'px'});
+jokes.calculate();
 
 $(document).ready(function(){
+	jokes.currentPage = $(document.body).attr('class');
 	myScroll = new iScroll('jokes', {
 		snap:true,
 		momentum:false,
         desktopCompatibility:true,
-		ischildiscroll:true,
 		hScrollbar:false,
 		onScrollEnd: function (e) {
             currentJoke = $($('#jokes li').dom[this.pageX]);
 			currentJokeId = currentJoke.attr('id');
 			if(currentJokeId == 'submitForm') {
 				$('.voting').addClass('submitActive');
-				$('nav #send').addClass('active');
+				$(document.body).attr('class', 'send');
 			} else {
 				$('.voting').removeClass('submitActive');
-				$('nav #send').removeClass('active');
+				$(document.body).attr('class', jokes.currentPage);
 			}
 			
 			jokes.refreshVotingButtons();

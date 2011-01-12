@@ -1,113 +1,308 @@
-<!doctype html>
-<html dir="rtl">
-<head>
-      <title>שחור משחור</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <link rel="stylesheet" type="text/css" href="app.css?v=1">
-</head>
-<body>
 
-<div class="cont">
-	<div id="bottomBar">
-		<div class="voting">
-			<a id="like" href="#" class="vote">מצחיק <span class="icon">:-D</span></a>
-			<a id="dislike" href="#" class="vote">לא מצחיק <span class="icon">:-(</span></a>
-			<a id="submit" href="#" rel="nofollow">שלח בדיחה <span class="icon">&lt;[ ]</span></a>
-		</div>
-		<nav>
-			<a id="new" href="/" class="active">
-				<div class="inner"><span class="icon"></span>בדיחות חדשות</div></a>
-			<a id="best" href="/?get=top">
-				<div class="inner"><span class="icon"></span>הכי טובות</div></a>
-			<a id="send" href="#send">
-				<div class="inner"><span class="icon"></span>שלח בדיחה</div></a>
-			<a id="about" href="#about">
-				<div class="inner"><span class="icon"></span>עלינו</div></a>
-		</nav>
-	</div>
-    <div id="viewport">
-    <div id="jokes">
-        <ul>
-		<li class="joke" id="submitForm"><div class="inner">
-			<h2>שלח בדיחה</h2>
-			<form>
-				<div class="controls">
-					<textarea placeholder="משהו מצחיק... " title="שלח בדיחה"></textarea>
-					<input type="submit" id="submit" name="submit" value="שלח">
-				</div>
-			</form>
-		 </li>
-        <li class="joke" id="joke-1">
-            <div class="inner">
-               איך נפלו גיבורים?שמו להם רגל
-            </div>
-        </li>
-         <li class="joke" id="joke-2"><div class="inner">
-      שופט: &quot;למה הרבצת לתובע?&quot;
-ערס: &quot;כי לפני שלוש שנים הוא קרא לי היפופוטם&quot;.
-שופט: &quot;אז למה הרבצת לו רק היום?&quot; נאשם: &quot;כי אתמול הייתי פעם ראשונה בגן חיות וראיתי מה זה היפופוטם&quot;.     </div></li>
-         <li class="joke" id="joke-17"><div class="inner">
-       איש עם גיבנת ענקית, משקפיים עבות,
-רגל מעץ, עם יד אחת ועם בגדים משנות
-השישים מגיע לסדרן בקולנוע ושואל:
-&quot;אני יוצא לדקה, תזכור אותי?&quot;     </div></li>
-         <li class="joke" id="joke-24"><div class="inner">
-      בואש וקיפוד נפגשים והם לא יודעים מהם. הקיפוד שואל את הבואש &quot;מה אני?&quot; אתה קטן אתה קוצני אתה קיפוד. הבואש שואל את הקיפוד &quot;מה אני?&quot; אתה שחור אתה מסריח אתה ערבי      </div></li>
+<!doctype html> 
+<html dir="rtl"> 
+<head> 
+      <meta charset="utf-8"> 
+	  <title>שחור משחור</title> 
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" /> 
+      <meta name="apple-mobile-web-app-capable" content="yes" /> 
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> 
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+      <link rel="stylesheet" type="text/css" href="app.css?v=0.1.2"> 
+</head> 
+<body class="new"> 
+ 
+<div class="cont"> 
+	<div id="bottomBar"> 
+		<div class="voting"> 
+			<a id="like" href="#" class="vote" rel="nofollow">מצחיק <span class="icon">:-D</span></a> 
+			<a id="dislike" href="#" class="vote" rel="nofollow">לא מצחיק <span class="icon">:-(</span></a> 
+			<a id="submit" href="#" rel="nofollow">שלח בדיחה <span class="icon">&lt;[ ]</span></a> 
+		</div> 
+		<nav> 
+			<a id="new" href="?get=new"> 
+				<div class="inner"><span class="icon"></span>בדיחות חדשות</div></a> 
+			<a id="top" href="?get=top"> 
+				<div class="inner"><span class="icon"></span>הכי טובות</div></a> 
+			<a id="send" href="#send"> 
+				<div class="inner"><span class="icon"></span>שלח בדיחה</div></a> 
+			<a id="about" href="#about"> 
+				<div class="inner"><span class="icon"></span>עלינו</div></a> 
+		</nav> 
+	</div> 
+    <div id="viewport"> 
+    <div id="jokes"> 
+        <ul> 
+			<li class="joke" id="submitForm"> 
+				<div class="inner"> 
+				<h2>שלח בדיחה</h2> 
+				<form> 
+					<div class="controls"> 
+						<textarea placeholder="שתהיה מצחיקה, שחורה ושלך." title="שלח בדיחה"></textarea> 
+					</div> 
+				</form> 
+				</div> 
+			 </li> 
+						 <li class="joke" id="joke-24"> 
+				<div class="inner"> 
+					בואש וקיפוד נפגשים והם לא יודעים מהם. הקיפוד שואל את הבואש &quot;מה אני?&quot; אתה קטן אתה קוצני אתה קיפוד. הבואש שואל את הקיפוד &quot;מה אני?&quot; אתה שחור אתה מסריח אתה ערבי 				</div> 
+			</li> 
+						 <li class="joke" id="joke-23"> 
+				<div class="inner"> 
+					גבר בתרדמת שוכב בבית החולים חודשיים, כשכל הזמן הזה אשתו יושבת לצדו ומתפללת שיקיץ. פתאום הוא מתעורר ומסמן לה להתקרב. &quot;את יודעת מה, היית לצדי כל הזמן. כשפיטרו אותי היית שם לתמוך בי. כשהעסק שהקמתי פשט רגל נשארת לצדי לחזק אותי. כשירו בי ישבת ליד מיטתי כל הלילות. כשהפסדנו את הבית עדיין המשכת להאמין בי. את יודעת מה אני חושב?&quot;. &quot;מה, יקירי?&quot;, שואלת האשה ברוך. &quot;אני חושב שאת מביאה לי מזל נאחס				</div> 
+			</li> 
+						 <li class="joke" id="joke-22"> 
+				<div class="inner"> 
+					שאלה: מה ההבדל בין מעלית סומלית למעלית רגילה? תשובה: ברגילה כתוב: &quot;עד 4 אנשים או 350 קילו&quot; בסומלית כתוב: &quot;עד 300 איש או 4 קילו&quot; 				</div> 
+			</li> 
+						 <li class="joke" id="joke-21"> 
+				<div class="inner"> 
+					איש אחד מתקשר לרופא ושואל אותו : &quot;דוקטור, מה שם הדג שיש לי?&quot;
 
-         <li class="joke" id="joke-7"><div class="inner">
-      בחור אחד טייל עם הכלב שלו ופגש את השכנו.
-שאל השכן: &quot;תגיד לי, למה אתה מטייל עם החזיר הזה?&quot;
-השיב לו הבחור: &quot;זה לא חזיר, זה כלב.&quot;
-שאל השכן: &quot;מי בכלל דיבר אלייך???&quot;     </div></li>
-         <li class="joke" id="joke-3"><div class="inner">
-      זקנה מגיע לבית אבות חדש, מתיישבת לה בכיסא ולפתע רואים המשגיחות במקום שהיא מתחילה לנטות עם הגוף לצד שמאל, ישר באים מחברים לה כרית עם מעקה בצד שמאל, לאחר מכן היא מתחילה לנטות לצד ימין ואז רצים אליה מהר ושוב מחברים לה ככה עם כרית שהיא לא תיפול, לאחר חצי שעה מתקשר אליה הבן שלה ושואל אותה נו איך זה בבית האבות החדש ? אומרת לו, האמת יפה כאן מאוד, אבל לא נותנים לי להפליץ !      </div></li>
+עונה הרופא: &quot;לא דג, סרטן&quot;				</div> 
+			</li> 
+						 <li class="joke" id="joke-20"> 
+				<div class="inner"> 
+					איש אחד הולך ליד פסי רכבת
 
-         <li class="joke" id="joke-19"><div class="inner">
-      אדם מגיע לבית חולים לאחר ששמע כי
+ורואה בחורה שוכבת על הפסים.
+
+הוא נוגע לה ביד, אך היא לא עונה.
+
+הוא נוגע לה בחזה, אך היא לא זזה.
+
+לבסוף מתייאש והולך הביתה.
+
+הוא מספר על המקרה לחבריו והם
+
+שואלים אותו: &quot;נו, אז למה
+
+לא ניצלת את ההזדמנות ושכבת איתה?&quot;
+
+עונה האיש: &quot;עזבו, לא היה לה
+
+ראש לזה...&quot;				</div> 
+			</li> 
+						 <li class="joke" id="joke-19"> 
+				<div class="inner"> 
+					אדם מגיע לבית חולים לאחר ששמע כי
+
 אישתו עברה תאונה. הוא שואל את
+
 הרופא מה מצבה, והרופא משיב: &quot;יש לה
+
 נזק מהצוואר ומטה. היא לא תוכל לזוז
+
 ותשב על כיסא גלגלים לשארית חייה.
+
 אתה צריך להאכיל אותה, להלביש אותה,
+
 לקלח אותה ולהושיב אותה על אסלה&quot;.
+
 הבעל מזועזע ולא יודע מה להגיד,
+
 אז הרופא אומר לו: &quot;סתם, צוחק איתך,
-היא מתה&quot;.     </div></li>
-         <li class="joke" id="joke-15"><div class="inner">
-      שאלה: מה משותף למורה ולנזלת?
-תשובה: שניהם יוצאים מהאף     </div></li>
-         <li class="joke" id="joke-6"><div class="inner">
 
-      גבר מגיע הביתה לאחר שביקר את חותנתו בבית חולים.
-&quot;נו&quot; שואלת אשתו בדאגה &quot;מה שלום אימא שלי?&quot;
-&quot;&quot;אמא שלך הולכת להיות בסדר גמור&quot; משיב הבעל
-&quot;תוך יום יומיים היא תעמוד על הרגליים, תתחיל לדבר, ותבוא לגור איתנו...&quot;
-&quot;מה ?!&quot; קוראת אשתו בתדהמה &quot;איך זה יכול להיות ?! הייתי שם אתמול והיא הייתה
-ללא הכרה, מחוברת למכשירים ומונשמת...!!&quot;
+היא מתה&quot;.				</div> 
+			</li> 
+						 <li class="joke" id="joke-18"> 
+				<div class="inner"> 
+					שאלה: מה הכי כיף במחלת אלצהיימר?
 
-&quot;אני לא יודע&quot; משיב הבעל &quot;ניגשתי לרופא ושאלתי אותו מה יהיה עם האמא שלך , והוא ענה לי:
-&quot;תתכונן לגרוע מכל !...&quot;      </div></li>
-         <li class="joke" id="joke-11"><div class="inner">
-      שאלה: כיצד ניתן להגדיר
+תשובה: כל יום פוגשים אנשים חדשים!				</div> 
+			</li> 
+						 <li class="joke" id="joke-17"> 
+				<div class="inner"> 
+					 איש עם גיבנת ענקית, משקפיים עבות,
+
+רגל מעץ, עם יד אחת ועם בגדים משנות
+
+השישים מגיע לסדרן בקולנוע ושואל:
+
+&quot;אני יוצא לדקה, תזכור אותי?&quot;				</div> 
+			</li> 
+						 <li class="joke" id="joke-16"> 
+				<div class="inner"> 
+					לפי הסטטיסטיקה, 9 מתוך 10 אנשים נהנים מאונס קבוצתי...				</div> 
+			</li> 
+						 <li class="joke" id="joke-15"> 
+				<div class="inner"> 
+					שאלה: מה משותף למורה ולנזלת?
+
+תשובה: שניהם יוצאים מהאף				</div> 
+			</li> 
+						 <li class="joke" id="joke-14"> 
+				<div class="inner"> 
+					&quot;מי יכול להיות האדם שיש לו מקום
+
+לגמר גביע העולם בכדורגל ולא מגיע
+
+למשחק?&quot; שואל האיש מאחור.
+
+&quot;במקרה זו אשתי, אבל היא נפטרה. אף
+
+פעם לא פספסנו משחק גמר מאז
+
+שהתחתנו&quot;.
+
+&quot;אני משתתף בצערך. לא יכולת למצוא
+
+חבר, שכן או קרוב משפחה שיבוא איתך
+
+למשחק במקום אשתך?&quot;
+
+האיש מניד בראשו: &quot;לא, הם בלוויה&quot;.
+
+				</div> 
+			</li> 
+						 <li class="joke" id="joke-13"> 
+				<div class="inner"> 
+					לאיש אחד היה כרטיס לגמר גביע העולם
+
+בכדורגל. הוא מגיע למשחק ויושב
+
+במקומו. לאחר כמה דקות, טופח לו על
+
+השכם האיש שיושב מאחוריו ושואל:
+
+&quot;המקום שלידך פנוי?&quot;				</div> 
+			</li> 
+						 <li class="joke" id="joke-12"> 
+				<div class="inner"> 
+					שתי חברות, בשבעה:
+
+&quot;ראיתי שבהלוויה של בעלך לא יכולת
+
+להיפרד ממנו בלי לפתוח את הארון כדי
+
+להסתכל עליו בפעם האחרונה&quot;.
+
+&quot;אני אגיד לך מה&quot;, אומרת האלמנה,
+
+&quot;כששמעתי את כל ההספדים, הייתי
+
+חייבת לוודא שאני בהלוויה הנכונה&quot;.				</div> 
+			</li> 
+						 <li class="joke" id="joke-11"> 
+				<div class="inner"> 
+					שאלה: כיצד ניתן להגדיר
+
 &quot;רגשות מעורבים&quot;?
-תשובה: לראות את החותנת
-מתגלגלת במורד הגבעה,
-עם האוטו החדש שלך...     </div></li>
-        </ul>
-    </div>
-</div>
 
-<script>
+תשובה: לראות את החותנת
+
+מתגלגלת במורד הגבעה,
+
+עם האוטו החדש שלך...				</div> 
+			</li> 
+						 <li class="joke" id="joke-10"> 
+				<div class="inner"> 
+					עיוור ופיסח פוגשים האחד את השני. 
+
+שואל העיוור: &quot;איך הולך?&quot;
+
+עונה הפיסח: &quot;כמו שאתה רואה...&quot;				</div> 
+			</li> 
+						 <li class="joke" id="joke-9"> 
+				<div class="inner"> 
+					שולחים מחבל כורדי להתאבד בתל אביב. הכורדי מגיע לדיזינגוף, מצלצל ושואל: &quot;יש מסביבי 100 איש, להתאבד?&quot; - אז הם אומרים לו: &quot;לא, זה מעט, אל תתאבד&quot;. מגיע לבנייני עזריאלי, מצלצל ושואל: &quot;יש מסביבי 1000 איש. להתאבד?&quot; &quot;כן, כן, תתאבד! זה הרבה אנשים!&quot;. טיק טק מוציא הכורדי אקדח, ויורה לעצמו בראש!!!				</div> 
+			</li> 
+						 <li class="joke" id="joke-8"> 
+				<div class="inner"> 
+					באולימפיאדה לנכים מתקיימת תחרות שחייה. כל המתחרים
+
+מתכוננים להזנקה. השופט שואל את מתחרה מספר חמש:
+
+&quot; אתה יודע לשחות?&quot; -המתחרה ללא ידיים ורגליים
+
+&quot;כן&quot;,עונה לשופט.
+
+ההזנקהמתקרבת, שמים לכולם כובעי מים על הראש ושניות
+
+לאחר מכן נשמעת הירייה. כל המתחרים יוצאים לדרך חוץ
+
+ממתחרה מספר חמש שטובע. השופט קופץ למים ומציל אותו.
+
+&quot;אמרת שאתה יודע לשחות&quot;, צועק עליו השופט, &quot;יכולת למות...&quot;
+
+עונהה שחיין: &quot;כבר שלוש שנים שאני לומד איך לשחות עם
+
+האוזניים...עכשיו אתם באים ושמים לי כובע מים?&quot;				</div> 
+			</li> 
+						 <li class="joke" id="joke-7"> 
+				<div class="inner"> 
+					בחור אחד טייל עם הכלב שלו ופגש את השכנו.
+
+שאל השכן: &quot;תגיד לי, למה אתה מטייל עם החזיר הזה?&quot;
+
+השיב לו הבחור: &quot;זה לא חזיר, זה כלב.&quot;
+
+שאל השכן: &quot;מי בכלל דיבר אלייך???&quot;				</div> 
+			</li> 
+						 <li class="joke" id="joke-6"> 
+				<div class="inner"> 
+					גבר מגיע הביתה לאחר שביקר את חותנתו בבית חולים. 
+
+&quot;נו&quot; שואלת אשתו בדאגה &quot;מה שלום אימא שלי?&quot; 
+
+&quot;&quot;אמא שלך הולכת להיות בסדר גמור&quot; משיב הבעל 
+
+&quot;תוך יום יומיים היא תעמוד על הרגליים, תתחיל לדבר, ותבוא לגור איתנו...&quot;
+
+&quot;מה ?!&quot; קוראת אשתו בתדהמה &quot;איך זה יכול להיות ?! הייתי שם אתמול והיא הייתה
+
+ללא הכרה, מחוברת למכשירים ומונשמת...!!&quot; 
+
+&quot;אני לא יודע&quot; משיב הבעל &quot;ניגשתי לרופא ושאלתי אותו מה יהיה עם האמא שלך , והוא ענה לי: 
+
+&quot;תתכונן לגרוע מכל !...&quot; 				</div> 
+			</li> 
+						 <li class="joke" id="joke-5"> 
+				<div class="inner"> 
+					לבדיחה אחת הייתה חברה מאוד קרובה והן היו ממש כמו שתי אחיות.
+
+יום אחד חלתה אותה בדיחה עד שלא יכלה לקום מהמיטה.
+
+לכן חברתה טיפלה בה, עזרה לה להתאושש, הכינה לה תה, מדדה לה חום, קנתה לה תרופות... איזו בדיחה טובה, הא?				</div> 
+			</li> 
+						 <li class="joke" id="joke-4"> 
+				<div class="inner"> 
+					ילד: &quot;אבא, מה זה פוזל?&quot;
+
+האב:&quot;אתה רואה את שני העצים שם, אז אדם פוזל יראה ארבעה.&quot;
+
+הילד:&quot;אבל אבא, יש רק עץ אחד!&quot;				</div> 
+			</li> 
+						 <li class="joke" id="joke-3"> 
+				<div class="inner"> 
+					זקנה מגיע לבית אבות חדש, מתיישבת לה בכיסא ולפתע רואים המשגיחות במקום שהיא מתחילה לנטות עם הגוף לצד שמאל, ישר באים מחברים לה כרית עם מעקה בצד שמאל, לאחר מכן היא מתחילה לנטות לצד ימין ואז רצים אליה מהר ושוב מחברים לה ככה עם כרית שהיא לא תיפול, לאחר חצי שעה מתקשר אליה הבן שלה ושואל אותה נו איך זה בבית האבות החדש ? אומרת לו, האמת יפה כאן מאוד, אבל לא נותנים לי להפליץ ! 				</div> 
+			</li> 
+						 <li class="joke" id="joke-2"> 
+				<div class="inner"> 
+					שופט: &quot;למה הרבצת לתובע?&quot; 
+
+ערס: &quot;כי לפני שלוש שנים הוא קרא לי היפופוטם&quot;.
+
+שופט: &quot;אז למה הרבצת לו רק היום?&quot; נאשם: &quot;כי אתמול הייתי פעם ראשונה בגן חיות וראיתי מה זה היפופוטם&quot;.				</div> 
+			</li> 
+						 <li class="joke" id="joke-1"> 
+				<div class="inner"> 
+					איך נפלו גיבורים?
+
+שמו להם רגל				</div> 
+			</li> 
+			    </ul> 
+    </div> 
+</div> 
+</div> 
+ 
+ <script> 
 	var_gaq=[['_setAccount','UA-20534477-1'],['_trackPageview']];
 	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=true;
 	g.src=('https:'==location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';
 	s.parentNode.insertBefore(g,s)})(document,'script');
-</script>
-<script src="js/iscroll.js"></script>
-<script src="js/app.js"></script>
-</body>
+</script> 
+<script src="js/iscroll.js?v=0.1.2"></script> 
+<script src="js/app.js?v=0.1.2"></script> 
+</body> 
 </html>
