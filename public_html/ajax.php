@@ -48,7 +48,25 @@ else $query=" ORDER BY RAND(".ip2long($_SERVER["REMOTE_ADDR"]).")  LIMIT $start,
 
  return array('jokes'=>$jokes,'count'=>$pages);
 }
-echo json_encode(jokes());
+
+if(isset($_REQUEST['get'])) 
+ echo json_encode(jokes());
+else if(isset($_REQUEST['vote']) && isset($_REQUEST['id']))
+{
+ $id=intval($_REQUEST['id']);
+ if($id>0 && $id<2760000)
+ {
+  if($_REQUEST['vote']=='like')
+   $result=mysql_query("update jokes set rating=rating+1 where id=$id");
+  if($_REQUEST['vote']=='dislike')
+   $result=mysql_query("update jokes set rating=rating-1 where id=$id");
+ }
+ echo 'voted';
+}
+else
+{
+ echo 'usage: ajax.php?get=top&page=2 ajax.php?get=new&page=1 ajax.php?get=rand ajax.php?vote=1&id=123 ajax.php?vote=0&id=123 ';
+}
 
 mysql_close($conn);
 ?>
