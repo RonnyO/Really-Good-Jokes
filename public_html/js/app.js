@@ -32,11 +32,11 @@ var jokes = {
 			$('#dislike').addClass('active');
 			$('#like').removeClass('active');
 		} else {
-			$('#dislike').removeClass('active');
+			$('.vote').removeClass('active');
 		}
 	}
-},
-	currentJoke;
+};
+var currentJoke;
 
 jokes.p = {
    obj : ''
@@ -62,8 +62,9 @@ jokes.bindButtons = function(){
 			url: 'ajax.php?vote='+ vote +'&id=' + currentJokeId,
 			success: function(){
 				localStorage.setItem(currentJokeId, vote);
-				jokes.refreshVotingButtons();
-			}
+				$('#like').removeClass('active');
+				$(this).addClass('active');
+			}.bind(this)
 		});
 	});
 	
