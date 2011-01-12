@@ -40,7 +40,8 @@ jokes.calculate =  function(){
     jokes.p.obj.css({'width':($('.joke').dom.length * jokes.p.gen_width)+'px','height':jokes.p.gen_height+'px'});
     $('.joke').css({'width':(jokes.p.gen_width*0.8)+'px','margin':'0 '+(jokes.p.gen_width*0.1)+'px','height':jokes.p.gen_height+'px'});
 };
-jokes.initVoteButtons = function(){
+jokes.bindButtons = function(){
+	// votes
 	$('.vote').bind('click', function(){
 	currentJokeId = currentJoke.attr('id');
 	var vote = $(this).attr('id');
@@ -50,6 +51,14 @@ jokes.initVoteButtons = function(){
 				localStorage.setItem(currentJokeId, vote);
 			}
 		});
+	});
+	
+	// submit tab
+	$('#send').bind('click', function(ev){
+		ev.preventDefault();
+		myScroll.scrollToPage(0, 0, "500ms");
+		$('nav a').removeClass('active');
+		$(this).addClass('active');
 	});
 };
 
@@ -100,5 +109,5 @@ $(document).ready(function(){
 	 });
     myScroll.scrollToPage($('#jokes li').dom.length, 0,'0ms');
 	
-	jokes.initVoteButtons();
+	jokes.bindButtons();
 });

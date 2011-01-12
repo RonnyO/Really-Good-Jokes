@@ -73,9 +73,9 @@ mysql_close($conn);
 			<a id="submit" href="#" rel="nofollow">שלח בדיחה <span class="icon">&lt;[ ]</span></a>
 		</div>
 		<nav>
-			<a id="new" href="#main" class="active">
+			<a id="new" href="/" class="active">
 				<div class="inner"><span class="icon"></span>בדיחות חדשות</div></a>
-			<a id="best" href="#top">
+			<a id="best" href="/?get=top">
 				<div class="inner"><span class="icon"></span>הכי טובות</div></a>
 			<a id="send" href="#send">
 				<div class="inner"><span class="icon"></span>שלח בדיחה</div></a>
@@ -86,16 +86,22 @@ mysql_close($conn);
     <div id="viewport">
     <div id="jokes">
         <ul>
-    <?foreach($jokes['jokes'] as $joke){?>
-	 <li class="joke" id="joke-<?=$joke['id']?>">
-		<div class="inner">
-			<?=htmlspecialchars($joke['joke'])?>
-		</div>
-	</li>
-    <?
-     }
-    ?>
-	<li id="submitForm"> שלח בדיחה</li>
+			<li class="joke" id="submitForm"><div class="inner">
+				<h2>שלח בדיחה</h2>
+				<form>
+					<div class="controls">
+						<textarea placeholder="משהו מצחיק... " title="שלח בדיחה"></textarea>
+						<input type="submit" id="submit" name="submit" value="שלח">
+					</div>
+				</form>
+			 </li>
+			<?foreach($jokes['jokes'] as $joke){?>
+			 <li class="joke" id="joke-<?=$joke['id']?>">
+				<div class="inner">
+					<?=htmlspecialchars($joke['joke'])?>
+				</div>
+			</li>
+			<? } ?>
     </ul>
     </div>
 </div>
