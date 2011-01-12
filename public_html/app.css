@@ -136,12 +136,20 @@ a {
 	height: 19px;
 }
 
+#submit .icon {
+	width: 29px;
+}
+
 #like .icon {
 	background-position: -3px -61px;
 }
 
 #dislike .icon {
 	background-position: -25px -61px;
+}
+
+#submit .icon {
+	background-position: -50px -61px;
 }
 
 .vote.active {
@@ -193,7 +201,7 @@ nav .icon {
 #about:hover .icon, #about.active .icon {background-position: 0 -30px;}
 
 .icon {
-	background-image: url(images/icons.png);
+	background-image: url(images/icons.png?v=2);
 	background-repeat: no-repeat;
 }
 
@@ -223,16 +231,16 @@ nav a.active .inner {
 /* forms */
 
 div.controls textarea {
-width:100%;
-max-width: 400px;
+	width:100%;
+	max-width: 400px;
 }
 
 div.controls input {
-background: none;
-border: 1px solid #CCC;
-float: none;
-font-size: 15px;
-padding: 5px 20px;
-width: auto;
-display:block;
+	background: none;
+	border: 1px solid #CCC;
+	float: none;
+	font-size: 15px;
+	padding: 5px 20px;
+	width: auto;
+	display:block;
 }
