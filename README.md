@@ -5,6 +5,8 @@ Both jokes and documentation are in Hebrew to benefit Israeli web developers (an
 
 Check out the [Issues](https://github.com/RonnyO/Really-Good-Jokes/issues) and join us :-)
 
+Contribute to our jokes database.
+
 ###Changelog
 
 ####0.1.1
