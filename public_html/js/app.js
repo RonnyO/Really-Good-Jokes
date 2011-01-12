@@ -100,8 +100,10 @@ $(document).ready(function(){
 			currentJokeId = currentJoke.attr('id');
 			if(currentJokeId == 'submitForm') {
 				$('.voting').addClass('submitActive');
+				$('nav #send').addClass('active');
 			} else {
 				$('.voting').removeClass('submitActive');
+				$('nav #send').removeClass('active');
 			}
 			
 			jokes.refreshVotingButtons();
