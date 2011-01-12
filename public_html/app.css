@@ -2,11 +2,6 @@
 app.css
 */
 
-@-webkit-keyframes rotate {
-  from {-webkit-transform:rotate(0deg);}
-  to {-webkit-transform:rotate(360deg);}
-}
-
 body {
 
 	background: #121a20 url(images/bg.jpg) left top repeat;
@@ -257,12 +252,15 @@ div.controls input {
 }
 
 
+@-webkit-keyframes rotate {
+  from {-webkit-transform:rotate(0deg);}
+  to {-webkit-transform:rotate(360deg);}
+}
 
-.voting a.progress .icon {
+.voting a.spin .icon {
 	-webkit-animation-duration: 1.5s;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-name: rotate;
 	-webkit-animation-timing-function: linear;
 	-webkit-mask-size: 62px 62px;
 }
-
