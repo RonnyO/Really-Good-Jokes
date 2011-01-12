@@ -22,7 +22,8 @@ f(i.target).trigger("swipe"+(i.x1-i.x2>0?"Left":"Right"));i.x1=i.x2=i.last=0}els
 o);if(h instanceof Object){h=JSON.stringify(h);p=p||"application/json"}p&&n.setRequestHeader("Content-Type",p);n.setRequestHeader("X-Requested-With","XMLHttpRequest");n.send(h)};var m=f.ajax.mimeTypes={json:"application/json",xml:"application/xml",html:"text/html",text:"text/plain"};f.get=function(b,h){f.ajax({url:b,success:h})};f.post=function(b,h,j,l){if(h instanceof Function){l=l||j;j=h;h=null}f.ajax({type:"POST",url:b,data:h,success:j,dataType:l})};f.getJSON=function(b,h){f.ajax({url:b,success:h,
 dataType:"json"})};f.fn.load=function(b,h){if(!this.dom.length)return this;var j=this,l=b.split(/\s/),o;if(l.length>1){b=l[0];o=l[1]}f.get(b,function(p){j.html(o?f(document.createElement("div")).html(p).find(o).html():p);h&&h()});return this}})(Zepto);(function(f){var i=[],m;f.fn.remove=function(){return this.each(function(b){if(b.tagName=="IMG"){i.push(b);b.src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";m&&clearTimeout(m);m=setTimeout(function(){i=[]},6E4)}b.parentNode.removeChild(b)})}})(Zepto);
 
-var jokes = {};
+var jokes = {},
+	currentJoke;
 
 jokes.p = {
    obj : ''
@@ -38,6 +39,20 @@ jokes.calculate =  function(){
     jokes.reassign();
     jokes.p.obj.css({'width':($('.joke').dom.length * jokes.p.gen_width)+'px','height':jokes.p.gen_height+'px'});
     $('.joke').css({'width':(jokes.p.gen_width*0.8)+'px','margin':'0 '+(jokes.p.gen_width*0.1)+'px','height':jokes.p.gen_height+'px'});
+};
+jokes.initVoteButtons = function(){
+	$('#like').bind('click', function(){
+	currentJokeId = $(currentJoke).attr('id');
+		$.ajax({
+			url: 'ajax.php?vote=1&id=' + currentJokeId,
+			success: function(){
+				console && console.log('success');
+			},
+			error: function(){
+				console && console.warn('voting error');
+			}
+		});
+	});
 };
 
 window.addEventListener('resize',jokes.calculate,true);
@@ -58,7 +73,7 @@ $(document).ready(function(){
         desktopCompatibility:true,
 		hScrollbar:false,
 		onScrollEnd: function (e) {
-            cur_li = $('#jokes li').dom[this.pageX];
+            currentJoke = $('#jokes li').dom[this.pageX];
             if(1){ //check if content exeeds the parent
                 overfloated_obj = document.querySelector('#jokes li:nth-child(' + (this.pageX + 1) + ') div');
                 single_scroll = new iScroll(overfloated_obj,{desktopCompatibility:true,ischildiscroll:true,vScrollbar:true,momentum:true});
@@ -68,4 +83,6 @@ $(document).ready(function(){
 		}
 	 });
     myScroll.scrollToPage($('#jokes li').dom.length, 0,'0ms');
+	
+	jokes.initVoteButtons();
 });
