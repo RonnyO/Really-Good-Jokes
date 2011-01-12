@@ -51,17 +51,38 @@ else $query=" ORDER BY RAND(".ip2long($_SERVER["REMOTE_ADDR"]).")  LIMIT $start,
 
 if(isset($_REQUEST['get'])) 
  echo json_encode(jokes());
+if(isset($_REQUEST['submit'])) 
+{
+ $result=mysql_query("insert into jokes('joke') values('".mysql_real_escape_string($_REQUEST['joke'])."');");
+ if (!$result) {
+    $message  = 'Invalid query: ' . mysql_error() . "\n";
+    $message .= 'Whole query: ' . $query;
+    die($message);
+ }
+ else
+ {
+  echo mysql_insert_id();
+ }
+}
 else if(isset($_REQUEST['vote']) && isset($_REQUEST['id']))
 {
  $id=intval($_REQUEST['id']);
+ $undo=false;
+ 
+ if(isset($_REQUEST['undo'])) $undo=$_REQUEST['undo']=='1';
+ 
  if($id>0 && $id<2760000)
  {
   if($_REQUEST['vote']=='like')
-   $result=mysql_query("update jokes set rating=rating+1 where id=$id");
+   $result=mysql_query("update jokes set rating=rating+".($undo?'2':'1')." where id=$id");
   if($_REQUEST['vote']=='dislike')
-   $result=mysql_query("update jokes set rating=rating-1 where id=$id");
+   $result=mysql_query("update jokes set rating=rating-".($undo?'2':'1')." where id=$id");
+  echo 'voted';
  }
- echo 'voted';
+ else 
+ {
+  echo 'vote error';
+ }
 }
 else
 {
