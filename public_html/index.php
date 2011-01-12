@@ -10,15 +10,16 @@ $page=0;
 if(isset($_REQUEST['page']) && is_numeric($_REQUEST['page']) && $_REQUEST['page']>0)  $page=$_REQUEST['page']-1;
 $start=$page*40;
 
-if(isset($_REQUEST['get'])&&$_REQUEST['get']=='top') $query=" ORDER BY rating DESC LIMIT $start, 40 ";
+if(isset($_REQUEST['get'])&&$_REQUEST['get']=='top') {
+	$query = " ORDER BY rating DESC LIMIT $start, 40 ";
+	$get = "top";
+} else {
+	$query = " ORDER BY ID DESC LIMIT $start, 40";
+	$get = "new";
+}
 
-else if(isset($_REQUEST['get'])&&$_REQUEST['get']=='new') $query=" ORDER BY ID DESC LIMIT $start, 40";
-
-else $query=" ORDER BY RAND(".ip2long($_SERVER["REMOTE_ADDR"]).")  LIMIT $start, 40 ";
-
- $result=mysql_query("select * from jokes $query");
- if (!$result)
- {
+ $result = mysql_query("select * from jokes $query");
+ if (!$result) {
     $message  = 'Invalid query: ' . mysql_error() . "\n";
     $message .= 'Whole query: ' . $query;
     die($message);
@@ -46,7 +47,7 @@ else $query=" ORDER BY RAND(".ip2long($_SERVER["REMOTE_ADDR"]).")  LIMIT $start,
   $pages=ceil($count/40);
  }
 
- return array('jokes'=>$jokes,'count'=>$pages);
+ return array('jokes'=>$jokes,'count'=>$pages, currentPage=>$get);
 }
 $jokes=jokes();
 
@@ -63,7 +64,7 @@ mysql_close($conn);
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <link rel="stylesheet" type="text/css" href="app.css?v=<?= V ?>">
 </head>
-<body>
+<body class="<?= $jokes['currentPage'] ?>">
 
 <div class="cont">
 	<div id="bottomBar">
@@ -73,9 +74,9 @@ mysql_close($conn);
 			<a id="submit" href="#" rel="nofollow">שלח בדיחה <span class="icon">&lt;[ ]</span></a>
 		</div>
 		<nav>
-			<a id="new" href="/" class="active">
+			<a id="new" href="?get=new" class="active">
 				<div class="inner"><span class="icon"></span>בדיחות חדשות</div></a>
-			<a id="best" href="/?get=top">
+			<a id="best" href="?get=top">
 				<div class="inner"><span class="icon"></span>הכי טובות</div></a>
 			<a id="send" href="#send">
 				<div class="inner"><span class="icon"></span>שלח בדיחה</div></a>

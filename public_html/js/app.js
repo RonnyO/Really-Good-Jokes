@@ -55,7 +55,8 @@ jokes.calculate =  function(){
 };
 jokes.bindButtons = function(){
 	// votes
-	$('.vote').bind('click', function(){
+	$('.vote').bind('click', function(ev){
+	ev.preventDefault();
 	currentJokeId = currentJoke.attr('id');
 	var vote = $(this).attr('id');
 		$.ajax({
