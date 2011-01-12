@@ -25,6 +25,7 @@ dataType:"json"})};f.fn.load=function(b,h){if(!this.dom.length)return this;var j
 var jokes = {
 	currentPage: "top",
 	refreshVotingButtons: function(){
+		$('.vote').removeClass('spin');
 		try {
 			var storedVote = localStorage.getItem(currentJokeId);
 			if(storedVote == 'like') {
@@ -59,10 +60,12 @@ jokes.calculate = function(){
 jokes.bindButtons = function(){
 	// votes
 	$('.vote').bind('click', function(ev){
-		var votedElement = this;
 		ev.preventDefault();
+		var votedElement = $(this);
 		currentJokeId = currentJoke.attr('id');
 		var vote = $(this).attr('id');
+		$('.vote').removeClass('spin');
+		votedElement.addClass('spin');
 		$.ajax({
 			url: 'ajax.php?vote='+ vote +'&id=' + currentJokeId,
 			success: function(){
