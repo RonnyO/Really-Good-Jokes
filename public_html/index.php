@@ -11,10 +11,10 @@ if(isset($_REQUEST['page']) && is_numeric($_REQUEST['page']) && $_REQUEST['page'
 $start=$page*40;
 
 if(isset($_REQUEST['get'])&&$_REQUEST['get']=='top') {
-	$query = " ORDER BY rating DESC LIMIT $start, 40 ";
+	$query = " ORDER BY rating ASC LIMIT $start, 40 ";
 	$get = "top";
 } else {
-	$query = " ORDER BY ID DESC LIMIT $start, 40";
+	$query = " ORDER BY ID ASC LIMIT $start, 40";
 	$get = "new";
 }
 
