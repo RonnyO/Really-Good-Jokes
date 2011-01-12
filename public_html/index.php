@@ -68,8 +68,9 @@ mysql_close($conn);
 <div class="cont">
 	<div id="bottomBar">
 		<div class="voting">
-			<a id="like" href="#" class="vote">מצחיק <span class="icon">:-D</span></a>
-			<a id="dislike" href="#" class="vote">לא מצחיק <span class="icon">:-(</span></a>
+			<a id="like" href="#" class="vote" rel="nofollow">מצחיק <span class="icon">:-D</span></a>
+			<a id="dislike" href="#" class="vote" rel="nofollow">לא מצחיק <span class="icon">:-(</span></a>
+			<a id="submit" href="#" rel="nofollow">שלח בדיחה <span class="icon">&lt;[ ]</span></a>
 		</div>
 		<nav>
 			<a id="new" href="#main" class="active">
@@ -94,7 +95,7 @@ mysql_close($conn);
     <?
      }
     ?>
-	<li> שלח בדיחה</li>
+	<li id="submitForm"> שלח בדיחה</li>
     </ul>
     </div>
 </div>

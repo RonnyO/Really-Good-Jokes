@@ -91,7 +91,7 @@ a {
 	text-align: center;
 }
 
-.vote {
+.vote, #submit {
 	display: inline-block;
 	position: relative;
 	margin: 1em 3%;
@@ -114,7 +114,20 @@ a {
 	background-clip: padding-box;
 }
 
-.vote .icon {
+#submit {
+	width: 222px;
+	display: none;
+}
+
+.voting.submitActive #submit {
+	display: inline-block;
+}
+
+.voting.submitActive .vote {
+	display: none;
+}
+
+.vote .icon, #submit .icon {
 	display: inline-block;
 	position: absolute;
 	left: 7px;

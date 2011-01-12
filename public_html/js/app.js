@@ -74,6 +74,12 @@ $(document).ready(function(){
 		onScrollEnd: function (e) {
             currentJoke = $($('#jokes li').dom[this.pageX]);
 			currentJokeId = currentJoke.attr('id');
+			if(currentJokeId == 'submitForm') {
+				$('.voting').addClass('submitActive');
+			} else {
+				$('.voting').removeClass('submitActive');
+			}
+			
 			var storedVote = localStorage.getItem(currentJokeId);
 			if(storedVote == 'like') {
 				$('#like').addClass('active');
