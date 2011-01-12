@@ -51,7 +51,7 @@ jokes.reassign = function(){
    jokes.p.gen_width = $('#viewport').width();
    jokes.p.gen_height = (window.innerHeight - $('.voting').height() - $('nav').height() - 15);
 };
-jokes.calculate =  function(){
+jokes.calculate = function(){
     jokes.reassign();
     jokes.p.obj.css({'width':($('.joke').dom.length * jokes.p.gen_width)+'px','height':jokes.p.gen_height+'px'});
     $('.joke').css({'width':(jokes.p.gen_width*0.8)+'px','margin':'0 '+(jokes.p.gen_width*0.1)+'px','height':jokes.p.gen_height+'px'});
@@ -83,16 +83,11 @@ jokes.bindButtons = function(){
 	});
 };
 
-window.addEventListener('resize',jokes.calculate,true);
-var myScroll;
-var single_scroll;
+window.addEventListener('resize', jokes.calculate, true);
+var myScroll,
+	single_scroll;
 
-var obj = $('#jokes');
-var gen_width = $('#viewport').width();
-var gen_height = (window.innerHeight - $('.voting').height() - $('nav').height() - 15);
-
-obj.css({'width':($('.joke').dom.length * gen_width)+'px','height':gen_height+'px'});
-$('.joke').css({'width':(gen_width*0.8)+'px','margin':'0 '+(gen_width*0.1)+'px','height':gen_height+'px'});
+jokes.calculate();
 
 $(document).ready(function(){
 	jokes.currentPage = $(document.body).attr('class');
