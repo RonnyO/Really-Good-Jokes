@@ -68,8 +68,8 @@ mysql_close($conn);
 <div class="cont">
 	<div id="bottomBar">
 		<div class="voting">
-			<a id="like" href="#" class="vote">מצחיק</a>
-			<a id="dislike" href="#" class="vote">לא מצחיק</a>
+			<a id="like" href="#" class="vote">מצחיק <span class="icon">:-D</span></a>
+			<a id="dislike" href="#" class="vote">לא מצחיק <span class="icon">:-(</span></a>
 		</div>
 		<nav>
 			<a id="new" href="#main" class="active">
