@@ -67,14 +67,22 @@ if(isset($_REQUEST['submit']))
 else if(isset($_REQUEST['vote']) && isset($_REQUEST['id']))
 {
  $id=intval($_REQUEST['id']);
+ $undo=false;
+ 
+ if(isset($_REQUEST['undo'])) $undo=$_REQUEST['undo']=='1';
+ 
  if($id>0 && $id<2760000)
  {
   if($_REQUEST['vote']=='like')
-   $result=mysql_query("update jokes set rating=rating+1 where id=$id");
+   $result=mysql_query("update jokes set rating=rating+".($undo?'2':'1')." where id=$id");
   if($_REQUEST['vote']=='dislike')
-   $result=mysql_query("update jokes set rating=rating-1 where id=$id");
+   $result=mysql_query("update jokes set rating=rating-".($undo?'2':'1')." where id=$id");
+  echo 'voted';
  }
- echo 'voted';
+ else 
+ {
+  echo 'vote error';
+ }
 }
 else
 {
