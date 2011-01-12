@@ -69,6 +69,7 @@ $(document).ready(function(){
 		snap:true,
 		momentum:false,
         desktopCompatibility:true,
+		ischildiscroll:true,
 		hScrollbar:false,
 		onScrollEnd: function (e) {
             currentJoke = $($('#jokes li').dom[this.pageX]);
