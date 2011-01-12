@@ -202,3 +202,20 @@ nav a.active .inner {
 	font-size: 0;
 	line-height: 0;
 }
+
+/* forms */
+
+div.controls textarea {
+width:100%;
+max-width: 400px;
+}
+
+div.controls input {
+background: none;
+border: 1px solid #CCC;
+float: none;
+font-size: 15px;
+padding: 5px 20px;
+width: auto;
+display:block;
+}

@@ -56,6 +56,7 @@ $(document).ready(function(){
 		snap:true,
 		momentum:false,
         desktopCompatibility:true,
+		ischildiscroll:true,
 		hScrollbar:false,
 		onScrollEnd: function (e) {
             cur_li = $('#jokes li').dom[this.pageX];
