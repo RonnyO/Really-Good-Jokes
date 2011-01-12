@@ -67,8 +67,16 @@ jokes.bindButtons = function(){
 		var vote = $(this).attr('id');
 		$('.vote').removeClass('spin');
 		votedElement.addClass('spin');
+		var undo = '';
+		try {
+			var storedVote = localStorage.getItem(currentJokeId);
+			if(storedVote == 'like' || storedVote == 'dislike') {
+				undo = "&undo=1";
+			}
+		} catch(e){}
+		
 		$.ajax({
-			url: 'ajax.php?vote='+ vote +'&id=' + plainId,
+			url: 'ajax.php?vote='+ vote +'&id=' + plainId + undo,
 			success: function(){
 			    try{
 					localStorage.setItem(currentJokeId, vote);
